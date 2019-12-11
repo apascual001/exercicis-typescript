@@ -1,0 +1,46 @@
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="../style.css">
+
+</head>
+<body>
+    <section id="carInfo">
+            <h2>Introduzca los datos de su coche</h2>
+        <form action="" method="POST" id="vform" name="vform">
+            <div id="plate_div">
+                <label>MATRÍCULA COCHE:</label>
+                    <input name="plate" id="plate" type="text" class="form-control"  placeholder="Introducir Matrícula" oninput="">
+                <div id="plate_error"></div>
+            </div>
+            <div id="color_div">
+                    <label>COLOR COCHE:</label>
+                        <input name="color" id="color" type="text" class="form-control"  placeholder="Introducir Color" oninput="">
+                    <div id="color_error"></div>
+            </div>
+            <div id="brand_div">
+                    <label>MARCA COCHE:</label>
+                        <input name="brand" id="brand" type="text" class="form-control"  placeholder="Introducir Marca" oninput="">
+                    <div id="brand_error"></div>
+            </div>
+            
+<!-- 
+            <button onclick="createCar()">Create car</button>
+            <button onclick="createCar('1212SDS','SEAT','ROJO')">Create car</button>
+            <button onclick="createCar(this.vform.plate.value =  plate,'SEAT','ROJO')" type="submit" name="register" id="enviar" value="Register" class="btn white">Create car</button>
+            <button onclick="createCar()" type="submit" name="register" id="enviar" value="Register" class="btn white">Create car</button>
+-->    
+            <button class="btn" id="enviar" type="submit" onclick="createCar()">Create car</button>
+
+        </form>
+        <div id="showInfo">
+            <h2>Esta es la información de su coche</h2>
+        </div>
+    </section>    
+    <script src="../models/car.js"></script>
+    <script src="../models/wheel.js"></script>
+    <script src="../controllers/controller.js"></script>
+    
+</body>
