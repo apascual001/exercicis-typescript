@@ -7,30 +7,31 @@ class CarPanel {
         const form = <HTMLElement>document.getElementById('vform');
         form.addEventListener('submit', (event) => {event.preventDefault(); this.submitForm()});
     }
-
-    public submitForm(plate:string,color:string,brand:string): void {
-        var plate = (<HTMLInputElement>document.getElementById("plate")).value;
-        var color = (<HTMLInputElement>document.getElementById("color")).value;
-        var brand = (<HTMLInputElement>document.getElementById("brand")).value;
-
-        let car=new Car(plate,color,brand);
-
-        const elementFirst: HTMLElement = document.createElement('pre');
-        const elementSecond: HTMLElement = document.createElement('pre');
-        const elementThird: HTMLElement = document.createElement('pre');
-        const carInfo = <HTMLElement>document.getElementById('carInfo');
-
-        elementFirst.innerHTML = 'MATRÍCULA COCHE: ' + car.plate;
-        carInfo.appendChild(elementFirst);
-        elementSecond.innerHTML = 'COLOR COCHE: : ' + car.color;
-        carInfo.appendChild(elementSecond);
-        elementThird.innerHTML = 'MARCA COCHE: : ' + car.brand;
-        carInfo.appendChild(elementThird);
-
-    }
-
+    public submitForm(): void {
+        }   
 }
 
 new CarPanel();
 
+function createCar(plate:string,brand:string,color:string){
+    
+    var plate = (<HTMLInputElement>document.getElementById("plate")).value;
+    var color = (<HTMLInputElement>document.getElementById("color")).value;
+    var brand = (<HTMLInputElement>document.getElementById("brand")).value;
+ 
+    let car=new Car(plate,color,brand);
+    car.addWheel(new Wheel(2,"SEAT"));   
 
+    const showInfo = <HTMLElement>document.getElementById('showInfo');
+    const elementPlate: HTMLElement = document.createElement('div');
+    const elementColor: HTMLElement = document.createElement('div');
+    const elementBrand: HTMLElement = document.createElement('div');
+
+    elementPlate.innerHTML = 'MATRÍCULA COCHE :  ' + car.plate;
+    showInfo.appendChild(elementPlate);
+    elementColor.innerHTML = 'COLOR COCHE :  ' + car.color;
+    showInfo.appendChild(elementColor);
+    elementBrand.innerHTML = 'MARCA COCHE :  ' + car.brand;
+    showInfo.appendChild(elementBrand);
+
+}
