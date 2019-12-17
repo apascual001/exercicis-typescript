@@ -9,20 +9,20 @@
 <body>
     <section id="carInfo">
             <h2>Introduzca los datos de su coche</h2>
-        <form action="" method="POST" id="vform" name="vform">
+        <form action="" method="POST" id="vform" name="vform" onsubmit="return submitCar()">
             <div id="plate_div">
                 <label>MATRÍCULA COCHE:</label>
-                    <input name="plate" id="plate" type="text" class="form-control"  placeholder="Introducir Matrícula" oninput="">
+                    <input name="plate" id="plate" type="text" class="form-control"  placeholder="Introducir Matrícula" onsubmit="submitCar()">
                 <div id="plate_error"></div>
             </div>
             <div id="color_div">
                     <label>COLOR COCHE:</label>
-                        <input name="color" id="color" type="text" class="form-control"  placeholder="Introducir Color" oninput="">
+                        <input name="color" id="color" type="text" class="form-control"  placeholder="Introducir Color" onsubmit="submitCar()">
                     <div id="color_error"></div>
             </div>
             <div id="brand_div">
                     <label>MARCA COCHE:</label>
-                        <input name="brand" id="brand" type="text" class="form-control"  placeholder="Introducir Marca" oninput="">
+                        <input name="brand" id="brand" type="text" class="form-control"  placeholder="Introducir Marca" onsubmit="submitCar()">
                     <div id="brand_error"></div>
             </div>
             
@@ -32,13 +32,32 @@
             <button onclick="createCar(this.vform.plate.value =  plate,'SEAT','ROJO')" type="submit" name="register" id="enviar" value="Register" class="btn white">Create car</button>
             <button onclick="createCar()" type="submit" name="register" id="enviar" value="Register" class="btn white">Create car</button>
 -->    
-            <button class="btn" id="enviar" type="submit" onclick="createCar()">Create car</button>
+            <button class="btn" id="enviar" type="submit">Create car</button>
 
         </form>
         <div id="showInfo">
             <h2>Esta es la información de su coche</h2>
         </div>
-    </section>    
+    </section>
+    <section id="wheelsInfo" class="hide">
+        <form action="" method="POST" id="vform" name="vform" onsubmit="return submitCar()">
+
+            <div class="row">
+                <div id="brand1_div">
+                    <label>Marca rueda 1:</label>
+                        <input name="brand1" id="brand1" type="text" class="brand"  placeholder="Introducir Marca" onsubmit="()">
+                    <div id="brand1_error"></div>
+                </div>
+                <div id="diam1_div">
+                    <label>Diámetro rueda 1:</label>
+                        <input name="diam1" id="diam1" type="text" class="diam"  placeholder="Introducir Diámetro" onsubmit="()">
+                    <div id="diam1_error"></div>
+                </div>
+            </div>
+            <div class="row"></div>
+        </form>
+
+    </section>   
     <script src="../models/car.js"></script>
     <script src="../models/wheel.js"></script>
     <script src="../controllers/controller.js"></script>
