@@ -92,3 +92,80 @@ function submitCar() {
     return false;
     } 
 }
+//**************************** */
+let wheel: Wheel;
+const diams = (document.getElementsByClassName("diam"));
+
+function validateWheels(){    
+            var z = 0;      
+            for (var i = 0; i < diams.length; i++) {   
+                var valordiam = (<HTMLInputElement>document.getElementById("diam"+(i+1))).valueAsNumber;
+                var diam_error = <HTMLElement>document.getElementById('diam'+(i+1)+'_error');
+                diam_error.innerHTML = '';
+                diam_error.classList.remove('red');
+                if ( valordiam < 0.4 || valordiam> 2 || isNaN(valordiam)){
+                    diam_error.innerHTML = 'La medida no es correcta';
+                    diam_error.classList.add('red');
+                    z ++;
+                    console.log(z);   
+                }
+                var valorbrand = (<HTMLInputElement>document.getElementById("brand"+(i+1))).value;
+                var brand_error = <HTMLElement>document.getElementById('brand'+(i+1)+'_error');
+                brand_error.innerHTML = '';
+                brand_error.classList.remove('red');
+                if ( valorbrand == ""){
+                    brand_error.innerHTML = 'La marca no puede estar vacia';
+                    brand_error.classList.add('red');
+                    z ++;
+                    console.log(z);   
+                }
+            }
+            return z;  
+}
+
+function showWheels(){
+    //var diam1 = (<HTMLInputElement>document.getElementById("diam1")).valueAsNumber;
+    //var diam2 = (<HTMLInputElement>document.getElementById("diam2")).valueAsNumber;
+    //var diam3 = (<HTMLInputElement>document.getElementById("diam3")).valueAsNumber;
+    //var diam4 = (<HTMLInputElement>document.getElementById("diam4")).valueAsNumber;
+    //var brand1 = (<HTMLInputElement>document.getElementById("brand1")).value;
+    //var brand2 = (<HTMLInputElement>document.getElementById("brand2")).value;
+    //var brand3 = (<HTMLInputElement>document.getElementById("brand3")).value;
+    //var brand4 = (<HTMLInputElement>document.getElementById("brand4")).value;
+
+    //car.addWheel(new Wheel(diam1,brand1));  
+    //car.addWheel(new Wheel(diam2,brand2));  
+    //car.addWheel(new Wheel(diam3,brand3));  
+    //car.addWheel(new Wheel(diam4,brand4)); 
+    
+    for (var i = 0; i < diams.length; i++) {   
+        var valordiam = (<HTMLInputElement>document.getElementById("diam"+(i+1))).valueAsNumber;
+        var valorbrand = (<HTMLInputElement>document.getElementById("brand"+(i+1))).value;
+        car.addWheel(new Wheel(valordiam,valorbrand)); 
+    }
+    const showWheels = <HTMLElement>document.getElementById('showWheels');
+
+    car.wheels.forEach(Wheel => {
+        const elementwheel1: HTMLElement = document.createElement('div');
+        elementwheel1.innerHTML += 'RUEDA ' +(car.wheels.indexOf(Wheel)+1)+ '    Diámetro: '+ Wheel.diameter;
+        elementwheel1.innerHTML += '  Marca :  ' + Wheel.brand;
+
+        showWheels.appendChild(elementwheel1);
+    });
+    var button = <HTMLElement>document.getElementById("imprimir");
+        button.classList.add('hide');
+
+
+}
+function submitWheels(){
+    event.preventDefault()
+    //limpiarerrores();
+    var z = validateWheels();
+    if (z == 0) {
+        console.log(z);
+        showWheels();
+    } else {
+    return false;
+    } 
+
+}

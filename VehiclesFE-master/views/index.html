@@ -40,22 +40,67 @@
         </div>
     </section>
     <section id="wheelsInfo" class="hide">
-        <form action="" method="POST" id="vform" name="vform" onsubmit="return submitCar()">
+        <form action="" method="POST" id="wheelsform" name="wheelsform" onsubmit="return submitWheels()">
 
             <div class="row">
-                <div id="brand1_div">
-                    <label>Marca rueda 1:</label>
-                        <input name="brand1" id="brand1" type="text" class="brand"  placeholder="Introducir Marca" onsubmit="()">
-                    <div id="brand1_error"></div>
+                <div id="wheel1">
+                    <div id="brand1_div">
+                        <label>Marca rueda 1:</label>
+                            <input id="brand1" type="text" class="brand"  placeholder="Introducir Marca" onsubmit="validateWheels()">
+                        <div id="brand1_error"></div>
+                    </div>
+                    <div id="diam1_div">
+                        <label>Diámetro rueda 1:</label>
+                            <input id="diam1" type="number" step="0.1" class="diam"  placeholder="Introducir Diámetro" onsubmit="validateWheels()">
+                        <div id="diam1_error"></div>
+                    </div>
                 </div>
-                <div id="diam1_div">
-                    <label>Diámetro rueda 1:</label>
-                        <input name="diam1" id="diam1" type="text" class="diam"  placeholder="Introducir Diámetro" onsubmit="()">
-                    <div id="diam1_error"></div>
+                <div id="wheel2">
+                    <div id="brand2_div">
+                        <label>Marca rueda 2:</label>
+                            <input id="brand2" type="text" class="brand"  placeholder="Introducir Marca" onsubmit="submitWheels()">
+                        <div id="brand2_error"></div>
+                    </div>
+                    <div id="diam2_div">
+                        <label>Diámetro rueda 2:</label>
+                            <input id="diam2" type="number" step="0.1" class="diam"  placeholder="Introducir Diámetro" onsubmit="submitWheels()">
+                        <div id="diam2_error"></div>
+                    </div>
                 </div>
+                <div id="wheel3">
+                    <div id="brand3_div">
+                        <label>Marca rueda 3:</label>
+                            <input id="brand3" type="text" class="brand"  placeholder="Introducir Marca" onsubmit="submitWheels()">
+                        <div id="brand3_error"></div>
+                    </div>
+                    <div id="diam3_div">
+                        <label>Diámetro rueda 3:</label>
+                            <input id="diam3" type="number" step="0.1" class="diam"  placeholder="Introducir Diámetro" onsubmit="submitWheels()">
+                        <div id="diam3_error"></div>
+                    </div>
+                </div>
+                <div id="wheel4">
+                    <div id="brand4_div">
+                        <label>Marca rueda 4:</label>
+                            <input id="brand4" type="text" class="brand"  placeholder="Introducir Marca" onsubmit="submitWheels()">
+                        <div id="brand4_error"></div>
+                    </div>
+                    <div id="diam2_div">
+                        <label>Diámetro rueda 4:</label>
+                            <input id="diam4" type="number" step="0.1" class="diam"  placeholder="Introducir Diámetro" onsubmit="submitWheels()">
+                        <div id="diam4_error"></div>
+                    </div>
+                </div>
+
             </div>
             <div class="row"></div>
+            <button class="btn" id="imprimir" type="submit">Imrimir ruedas</button>
+
         </form>
+        <div id="showWheels">
+            <h2>Esta es la información de sus ruedas</h2>
+        </div>
+
 
     </section>   
     <script src="../models/car.js"></script>
